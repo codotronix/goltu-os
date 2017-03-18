@@ -1,0 +1,217 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	/*position: relative;*/
+	overflow: hidden;
+}
+
+#universal-container {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+#wallpaper-img {
+	height: 100%;
+	width: 100%;
+	z-index: -9;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+#startmenu {
+	height: 300px;
+	width:360px;
+	background: transparent;
+	overflow: hidden;
+	position: absolute;
+	bottom: 30px;
+	z-index: 9999;
+}
+
+#startmenu li {
+	position: relative;
+}
+
+#startmenu li .show-right {
+	position: absolute;
+	right: 7px;
+}
+
+#startmenu ul {
+	position: absolute;
+	bottom: 0;
+	background: #493d63;
+	color: #f0e6e6;
+	width: 180px;
+	padding: 2px 0;
+	display: none;
+}
+
+.list-1 {
+	left: 0;
+}
+
+.list-2 {
+	left: 180px;
+	max-height: 300px;
+	overflow: auto;
+}
+
+.list-1 li {
+	padding: 3px 2px;
+}
+
+.list-1 li:hover,
+.list-1 li.active {
+	background: #f0e6e6;
+	color: #513737;
+}
+
+.list-1 ul {
+	display: none;
+}
+
+#taskbar {
+	width: 100%;
+	height: 30px;
+	background: #301f1f;
+	position: absolute;
+	bottom: 0;
+}
+
+#taskbar .icon-btn {
+	height: 28px;
+	width: 28px;
+	float: left;
+	margin-left: 5px;
+}
+
+#taskbar .icon-btn .fa {
+	font-size: 28px;
+	color: #aeabda;
+}
+
+#taskbar .group {
+	display: inline-block;
+	float: left;
+}
+
+#taskbar .leftGroup,
+#taskbar .rightGroup {
+	padding: 0 5px;
+}
+
+#startBtn {
+	display: inline-block;
+	height: 28px;
+	/*width: 28px;*/
+	float: left;
+	border-radius: 1px;
+	background: #fbff56;
+	padding: 0 4px;
+	/*margin: 1px;*/
+	overflow: hidden;
+}
+
+#startBtn img {
+	height: 100%;
+	width: 100%;
+}
+
+.bx-window {
+	position: absolute;
+	height: 350px;
+	width: 500px;
+	min-width: 300px;
+	min-height: 150px;
+	top: 10px;
+	left: 20px;
+	background: lightgray;
+	border-radius: 2px;
+	box-shadow: 5px 5px 5px grey;
+	overflow: hidden;
+	z-index: 9;
+}
+
+.bx-window .window-title {
+	position: relative;
+	background: #3c4dcc;
+	color: #EDDEDE;
+	height: 25px;
+	font-size: 16px;
+}
+
+.bx-window .window-title .window-icon {
+	height: 24px;
+	width: 24px;
+	margin-left: 3px;
+}
+
+.bx-window .window-title .title {
+	position: absolute;
+	left: 33px;
+	top: 3px;
+}
+
+.bx-window .window-title .window-btns {
+	position: absolute;
+	right: 5px;
+	top: 3px;
+}
+
+.bx-window .window-title .window-btns .fa {
+	margin: 0 1px;
+	cursor: pointer;
+}
+
+.bx-window .window-title .window-restore,
+.bx-window.maximized .window-title .window-maximize {
+	display: none;
+}
+
+.bx-window.maximized .window-title .window-restore {
+	display: inline-block;
+}
+
+.bx-window .window-body iframe {
+	height: 100%;
+	width: 100%;
+}
+
+#sampleWindow,
+#sampleStampWindow {
+	display: none;
+}
+
+.stamp-window {
+	background: #e0e2ed;
+	max-width: 250px;
+	min-width: 75px;
+	word-break: break-all;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	border: 3px outset #000;
+	cursor: pointer;
+	display: inline-block;
+	border-left-width: 4px;
+	border-right-width: 4px;
+}
+
+.stamp-window .icon {
+	float: left;
+}
+
+.stamp-window .title {
+	margin: 0 5px;
+	vertical-align: middle;
+}

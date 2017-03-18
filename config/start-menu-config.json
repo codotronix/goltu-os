@@ -1,0 +1,111 @@
+[
+	{
+		"name": "Accessories",
+		"sub-list": 
+		[
+			{
+				"name": "Acc 1"
+			},
+			{
+				"name": "Acc 2"
+			},
+			{
+				"name": "Acc 3"
+			}
+		]
+	},
+	{
+		"name": "Softwares",
+		"sub-list": 
+		[
+			{
+				"name": "Softwares 1"
+			},
+			{
+				"name": "Softwares 2"
+			},
+			{
+				"name": "Softwares 3"
+			}
+		]
+	},
+	{
+		"name": "Games",
+		"sub-list": 
+		[
+			{
+				"name": "GO Goltu GO",
+				"type": "Ext-Web-App",
+				"url": "http://barick.in/Dourio/Final/",
+				"refreshOnResize": true
+			},
+			{
+				"name": "Asteroid Attack",
+				"type": "Ext-Web-App",
+				"url": "http://barick.in/Asteroid-Attack/play.html"
+			},
+			{
+				"name": "Mini Puzzle",
+				"type": "Ext-Web-App",
+				"url": "http://barick.in/mini-puzzle/puzzle.html"
+			},
+			{
+				"name": "Tankgular",
+				"type": "Ext-Web-App",
+				"url": "http://barick.in/Tankgular/",
+				"refreshOnResize": true
+			}
+		]
+	},	
+	{
+		"name": "Browser"
+	},
+	{
+		"name": "Preferences",
+		"sub-list": 
+		[
+			{
+				"name": "Preferences 1"
+			},
+			{
+				"name": "Preferences 2"
+			},
+			{
+				"name": "Preferences 3"
+			},
+			{
+				"name": "Preferences 4"
+			},
+			{
+				"name": "Preferences 5"
+			},
+			{
+				"name": "Preferences 6"
+			},
+			{
+				"name": "Preferences 7"
+			},
+			{
+				"name": "Preferences 8"
+			},
+			{
+				"name": "Preferences 9"
+			},
+			{
+				"name": "Preferences 10"
+			},
+			{
+				"name": "Preferences 11"
+			},
+			{
+				"name": "Preferences 12"
+			},
+			{
+				"name": "Preferences 13"
+			}
+		]
+	},
+	{
+		"name": "Logout"
+	}
+]
