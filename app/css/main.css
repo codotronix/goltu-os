@@ -52,33 +52,36 @@ ul {
 	background: #493d63;
 	color: #f0e6e6;
 	width: 180px;
-	padding: 2px 0;
-	display: none;
+	padding: 2px;
+	/*display: none;*/
 }
 
-.list-1 {
+#startmenu .list-1 {
 	left: 0;
 }
 
-.list-2 {
-	left: 180px;
+#startmenu .list-2 {
+	display: none;
+	left: 176px;
 	max-height: 300px;
 	overflow: auto;
+	padding: 5px;
 }
 
-.list-1 li {
+#startmenu .list-1 li:hover .list-2 {
+	display: block;
+}
+
+#startmenu .list-1 li {
 	padding: 3px 2px;
 }
 
-.list-1 li:hover,
-.list-1 li.active {
+#startmenu .list-1 li:hover,
+#startmenu .list-1 li.active {
 	background: #f0e6e6;
 	color: #513737;
 }
 
-.list-1 ul {
-	display: none;
-}
 
 #taskbar {
 	width: 100%;
