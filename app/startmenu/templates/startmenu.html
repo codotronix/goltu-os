@@ -1,11 +1,11 @@
 <div id="startmenu" data-ng-controller="startMenuController as smvm">
 	<ul class="list-1" data-ng-show="!!$root.showStartMenu">
-		<li data-ng-repeat="menu in smvm.menu">
-			<span>{{menu.name}}</span>
+		<li data-ng-repeat="menu in smvm.menu" ng-click="smvm.startApp($event)">
+			<span class="menu-name">{{menu.name}}</span>
 			<i data-ng-if="menu['sub-list'] !== undefined" class="fa show-right fa-caret-right"></i>
 			<ul data-ng-if="menu['sub-list'] !== undefined" class="list-2">
-				<li data-ng-repeat="submenu in menu['sub-list']">
-					{{submenu.name}}
+				<li data-ng-repeat="submenu in menu['sub-list']" ng-click="smvm.startApp($event)">
+					<span class="menu-name">{{submenu.name}}</span>
 				</li>
 			</ul>
 		</li>			

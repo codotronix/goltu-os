@@ -1,3 +1,3 @@
 (function(){
-	angular.module("goltu-os", ['startmenu']);
+	angular.module("goltu-os", ['startmenu', 'taskmanager', 'windows']);
 })()
