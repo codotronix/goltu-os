@@ -30,9 +30,9 @@
 
 		function setTaskbarWidth () {
 			var occupiedWidth = parseFloat($('#taskbar .leftGroup').css('width')) + parseFloat($('#taskbar .rightGroup').css('width'));
-			console.log('occupiedWidth='+occupiedWidth);
+			//console.log('occupiedWidth='+occupiedWidth);
 			var vacantWidth = parseFloat($('#taskbar').css('width')) - occupiedWidth;
-			console.log('vacantWidth='+vacantWidth);
+			//console.log('vacantWidth='+vacantWidth);
 			$('#taskbar .centerGroup').css('width', vacantWidth + 'px');
 		}
 

@@ -1,14 +1,14 @@
 (function () {
 	angular.module('windows').directive('extWebApp', extWebApp);
 
-	extWebApp.$inject = ['taskman', 'windowService'];
+	extWebApp.$inject = ['taskman', 'windowService', '$sce'];
 
-	function extWebApp (taskman, windowService) {
+	function extWebApp (taskman, windowService, $sce) {
 		return {
 			restrict: 'AE',
 			replace: true,
 			templateUrl: 'app/windows/extwebapptemplate.html',			
-			controller: function ($scope, $element) {
+			controller: ['$scope', function ($scope) {
 				//console.log($scope);
 				//console.log(constants);
 				var pos = windowService.getRandomTopLeft();
@@ -24,7 +24,7 @@
 					ev.stopPropagation();
 					taskman.destroyTask($scope);
 				}
-			}
+			}]
 		};
 
 		function minimizeWindow (ev, id) {
@@ -41,16 +41,7 @@
 
 		function restoreSize (ev, id) {
 			ev.stopPropagation();
-
-			var thisWindow = $('#' + id);
-
-			thisWindow.css({
-				top: thisWindow.attr('data-prev-top'),
-				left: thisWindow.attr('data-prev-left'),
-				height: thisWindow.attr('data-prev-height'),
-				width: thisWindow.attr('data-prev-width')
-			})
-			.removeClass('maximized');
+			windowService.restoreSize(id);
 		}
 
 	};

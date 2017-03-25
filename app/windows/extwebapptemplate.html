@@ -11,6 +11,8 @@
 		</span>
 	</div>
 
-	<div class="window-body">					
+	<div class="window-body">
+		<iframe src="{{app.url}}" name="iframe-{{taskID}}"></iframe>
+		<form target="iframe-{{taskID}}" action="{{app.url}}"></form>				
 	</div>
 </div>

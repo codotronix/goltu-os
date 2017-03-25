@@ -2,15 +2,17 @@
 	angular.module('windows')
 	.factory('windowService', windowService);
 
-	windowService.$inject = ['constants'];
+	windowService.$inject = ['constants', 'taskman'];
 
-	function windowService (constants) {
+	function windowService (constants, taskman) {
 		
 		return {
 			minimizeWindow: minimizeWindow,
 			maximizeWindow: maximizeWindow,
 			goFullSize: goFullSize,
-			getRandomTopLeft: getRandomTopLeft
+			restoreSize: restoreSize,
+			getRandomTopLeft: getRandomTopLeft,
+			adjustWindowBodyHeight: adjustWindowBodyHeight
 		}
 
 		function minimizeWindow (taskID) {
@@ -46,6 +48,43 @@
 				width: "100%"
 			})
 			.addClass('maximized');
+
+			adjustWindowBodyHeight(taskID);
+		}
+
+
+		function restoreSize (id) {
+			var thisWindow = $('#' + id);
+
+			thisWindow.css({
+				top: thisWindow.attr('data-prev-top'),
+				left: thisWindow.attr('data-prev-left'),
+				height: thisWindow.attr('data-prev-height'),
+				width: thisWindow.attr('data-prev-width')
+			})
+			.removeClass('maximized');
+
+			adjustWindowBodyHeight(id);
+		}
+
+
+		/* 
+		* set the window-body height to 
+		* heightOfThatWindow - heightOfItsTitleBar
+		*/
+		function adjustWindowBodyHeight(id){
+			var windowHt = $('#' + id).height();
+			var titleHt = $('#' + id + ' .window-title').height();
+			var winBodyHt = windowHt - titleHt;
+
+			$('#' + id + ' .window-body').css('height', winBodyHt + 'px');
+
+			//refresh iframe if refreshOnResize is true in Config
+			var runningPrograms = taskman.getRunningTasks();
+			if(runningPrograms[id] !== undefined 
+				&& runningPrograms[id]["refreshOnResize"]) {
+				$('#' + id + ' form').submit();
+			}
 		}
 
 

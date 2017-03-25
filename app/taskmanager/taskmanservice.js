@@ -55,6 +55,7 @@
 			var appWindow = $compile('<ext-web-app></ext-web-app>')(scope);
 
 			$('#universal-container').append(appWindow);
+			//windowService.adjustWindowBodyHeight(scope.taskID);
 
 			//store the scope, so that later we can call scope.$destroy
 			runningTasks[scope.taskID] = scope;

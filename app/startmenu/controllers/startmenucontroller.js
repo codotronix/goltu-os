@@ -5,19 +5,20 @@
 
 	function startMenuController ($http, taskman) {
 		var vm = this;
-		vm.menu = undefined;
-
+		vm.menu = availableApps;
+		taskman.setApps(vm.menu);
+		
 		vm.startApp = startApp;
 
-		$http.get('config/start-menu-config.json')
-		.then(function(res){
-			//console.log(res);
-			vm.menu = res.data;
-			taskman.setApps(vm.menu);
-		},
-		function(err){
-			console.log(err);
-		});
+		// $http.get('config/start-menu-config.json')
+		// .then(function(res){
+		// 	//console.log(res);
+		// 	vm.menu = res.data;
+		// 	taskman.setApps(vm.menu);
+		// },
+		// function(err){
+		// 	console.log(err);
+		// });
 
 		function startApp (ev) {
 			ev.stopPropagation();
