@@ -1,3 +1,3 @@
 (function () {
-	angular.module('startmenu', []);
+	return angular.module('startmenu', []);
 })()

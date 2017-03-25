@@ -10,7 +10,9 @@
 
 		return {
 			setApps: setApps,
-			startApp: startApp
+			startApp: startApp,
+			getRunningTasks: getRunningTasks,
+			destroyTask: destroyTask
 		};
 
 		/*
@@ -29,7 +31,7 @@
 				}
 			}
 
-			console.log(availableApps);
+			//console.log(availableApps);
 		}
 
 
@@ -45,12 +47,41 @@
 			}
 			 
 			var scope = $rootScope.$new();
+	
+			scope.app = angular.copy(availableApps[appName]);
 			scope.taskID = (appName + Math.random().toString()).replace(/[ .]/g, '');
-			scope.app = availableApps[appName];
+			scope.app.taskID = scope.taskID;
 
 			var appWindow = $compile('<ext-web-app></ext-web-app>')(scope);
 
 			$('#universal-container').append(appWindow);
+
+			//store the scope, so that later we can call scope.$destroy
+			runningTasks[scope.taskID] = scope;
+			//console.log(runningTasks);
+		}
+
+
+		function getRunningTasks () {
+			//console.log('returning ');console.log(runningTasks);
+			return runningTasks;
+		}
+
+
+		function destroyTask(scope) {
+			//remove it from currently running tasks
+			delete runningTasks[scope.taskID];
+
+			//remove html from DOM
+			$('#'+scope.taskID)
+			//.addClass('animated lightSpeedOut')
+			.hide(300, function(){
+				$(this).remove();
+			})
+			//.remove();
+
+			//finally destro the scope
+			scope.$destroy();
 		}
 	}
 })()

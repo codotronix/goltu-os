@@ -11,7 +11,7 @@
 
 		$http.get('config/start-menu-config.json')
 		.then(function(res){
-			console.log(res);
+			//console.log(res);
 			vm.menu = res.data;
 			taskman.setApps(vm.menu);
 		},
@@ -24,9 +24,9 @@
 			var $el = $(ev.target);
 			var appName = $el.hasClass('menu-name') ? $el.text() : $el.find('.menu-name').eq(0).text();
 			
-			console.log("clicked appName="+appName);
+			//console.log("clicked appName="+appName);
 
 			taskman.startApp(appName);
 		}
 	}
-})()
+})();

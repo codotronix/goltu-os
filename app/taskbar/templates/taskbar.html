@@ -1,4 +1,4 @@
-<div id="taskbar">
+<div id="taskbar" ng-controller="taskbarController as tbvm">
 
 	<div class="leftGroup group">
 
@@ -29,7 +29,12 @@
 
 
 	<div class="centerGroup group">
-		
+		<div ng-repeat="(taskID, task) in tbvm.getRunningTasks()" 
+		id="minimized-{{taskID}}" class="stamp-window" title="Sample Minimized Window" ng-click="tbvm.toggleWindow($event, taskID)">
+			<img class="icon" alt="window-icon" src="img/24by24.png"/>
+			<span class="title">{{task.app.name}}</span>
+		</div>
 	</div>
+
 	<div class="rightGroup group"></div>
 </div>
