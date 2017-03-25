@@ -1,0 +1,40 @@
+<div id="taskbar" ng-controller="taskbarController as tbvm">
+
+	<div class="leftGroup group">
+
+		<span id="startBtn" data-ng-click="$root.showStartMenu = !$root.showStartMenu">
+			<img src="img/30by30.png" alt="Click here to start"/>
+		</span>
+
+		<a class="icon-btn" href="https://in.linkedin.com/in/sumanbarick" target="_blank" title="linkedin">
+			<i class="fa fa-linkedin-square"></i>
+		</a>
+
+		<a class="icon-btn" href="http://stackoverflow.com/users/5017556/suman-barick" target="_blank" title="stack-overflow">
+			<i class="fa fa-stack-overflow"></i>
+		</a>
+
+		<a class="icon-btn" href="https://github.com/codotronix" target="_blank" title="github">
+			<i class="fa fa-github"></i>
+		</a>
+
+		<a class="icon-btn" href="https://www.facebook.com/codotronix" target="_blank" title="facebook">
+			<i class="fa fa-facebook-square"></i>
+		</a>
+
+		<a class="icon-btn" href="https://twitter.com/codotronix" target="_blank" title="twitter">
+			<i class="fa fa-twitter-square"></i>
+		</a>
+	</div>
+
+
+	<div class="centerGroup group">
+		<div ng-repeat="(taskID, task) in tbvm.getRunningTasks()" 
+		id="minimized-{{taskID}}" class="stamp-window" title="Sample Minimized Window" ng-click="tbvm.toggleWindow($event, taskID)">
+			<img class="icon" alt="window-icon" src="img/24by24.png"/>
+			<span class="title">{{task.app.name}}</span>
+		</div>
+	</div>
+
+	<div class="rightGroup group"></div>
+</div>

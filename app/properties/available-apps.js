@@ -1,3 +1,4 @@
+availableApps = 
 [
 	{
 		"name": "External Utilities",
@@ -110,4 +111,4 @@
 	{
 		"name": "Logout"
 	}
-]
+];
