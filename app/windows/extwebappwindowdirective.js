@@ -1,9 +1,9 @@
 (function () {
 	angular.module('windows').directive('extWebApp', extWebApp);
 
-	extWebApp.$inject = ['constants', 'taskman', windowService];
+	extWebApp.$inject = ['taskman', 'windowService'];
 
-	function extWebApp (constants, taskman, windowService) {
+	function extWebApp (taskman, windowService) {
 		return {
 			restrict: 'AE',
 			replace: true,
@@ -11,13 +11,14 @@
 			controller: function ($scope, $element) {
 				//console.log($scope);
 				//console.log(constants);
-				var pos = getRandomTopLeft();
-				console.log(pos);
+				var pos = windowService.getRandomTopLeft();
+				//console.log(pos);
 				$scope.top = pos.top;
 				$scope.left = pos.left;
 				$scope.closeApp = closeApp;
 				$scope.minimizeWindow = minimizeWindow;
-				$scope.maximizeWindow = maximizeWindow;
+				$scope.goFullSize = goFullSize;
+				$scope.restoreSize = restoreSize;
 
 				function closeApp (ev) {
 					ev.stopPropagation();
@@ -26,40 +27,32 @@
 			}
 		};
 
-
-		
-
-
 		function minimizeWindow (ev, id) {
 			ev.stopPropagation();
 			windowService.minimizeWindow(id);
 		}
 
 
-		function maximizeWindow (ev, id) {
+		function goFullSize (ev, id) {
 			ev.stopPropagation();
-			windowService.maximizeWindow(id);
+			windowService.goFullSize(id);
 		}
 
 
-		function getRandomTopLeft () {
-			var worldHt = $('#universal-container').innerHeight();
-			var worldWd = $('#universal-container').innerWidth();
+		function restoreSize (ev, id) {
+			ev.stopPropagation();
 
-			var winHt = constants.WINDOW_DEFAULT_HEIGHT;
-			var winWd = constants.WINDOW_DEFAULT_WIDTH;
+			var thisWindow = $('#' + id);
 
-			var diffHt = worldHt - winHt;
-			var diffWd = worldWd - winWd;
-
-			console.log('winWd='+winWd);
-			console.log('diffWd='+diffWd);
-
-			var rTop = diffHt > 0 ? Math.floor(Math.random() * diffHt) : 0;
-			var rLeft = diffWd > 0 ? Math.floor(Math.random() * diffWd) : 0;
-
-			return({'top': rTop, 'left': rLeft});
+			thisWindow.css({
+				top: thisWindow.attr('data-prev-top'),
+				left: thisWindow.attr('data-prev-left'),
+				height: thisWindow.attr('data-prev-height'),
+				width: thisWindow.attr('data-prev-width')
+			})
+			.removeClass('maximized');
 		}
+
 	};
 
 	

@@ -9,7 +9,7 @@ $(function () {
 	function init () {
 		loadStartMenuConfig();
 		adjustWindowBodyHeight('sampleWindow');
-		setTaskbaridth();		
+		setTaskbarWidth();		
 	}
 
 	function loadStartMenuConfig () {
@@ -317,7 +317,7 @@ $(function () {
 	});
 
 
-	function setTaskbaridth () {
+	function setTaskbarWidth () {
 		var occupiedWidth = parseFloat($('#taskbar .leftGroup').css('width')) + parseFloat($('#taskbar .rightGroup').css('width'));
 
 		var vacantWidth = parseFloat($('#taskbar').css('width')) - occupiedWidth;

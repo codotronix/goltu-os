@@ -80,7 +80,7 @@
 			})
 			//.remove();
 
-			//finally destro the scope
+			//finally destroy the scope
 			scope.$destroy();
 		}
 	}
