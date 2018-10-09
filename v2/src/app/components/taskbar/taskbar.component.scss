@@ -6,3 +6,23 @@
     height: 40px;
     background: #000;
 }
+
+.startbtn {
+    position: absolute;
+    left: 2px;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    background: url(http://barick.in/goltu-os/v1/img/30by30.png) 5px 4px no-repeat;
+    /* border-left: 1px solid #fff; */
+    /* border-right: 1px solid #fff; */
+    border: 2px outset #a7aaff;
+    border-radius: 50%;
+    overflow: none;
+    /* right: 40px; */
+}
+
+.startbtn:hover {
+    cursor: pointer;
+    border-style: inset;
+}
